@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>M-Gon Attacks – Complete List</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>M-Gon: Attacks Encyclopedia</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="abilities.html">Abilities</a></li>
+                <li><a href="attacks.html">Attacks</a></li>
+                <li><a href="orbs.html">Orbs</a></li>
+                <li><a href="lasers.html">Lasers</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>All Attack Abilities</h2>
+
+        <!-- Laser Attacks -->
+        <section>
+            <h3>Laser Beam</h3>
+            <p><strong>Category:</strong> Attack</p>
+            <p><strong>Energy Cost:</strong> 10</p>
+            <p><strong>Cooldown:</strong> 5 ticks</p>
+            <p><strong>Description:</strong> Fires a continuous straight laser across the arena.</p>
+            <p><strong>Effect:</strong> Damages all entities in its path, interacts with colored orbs for bonus effects.</p>
+            <pre>struct Laser { intensity: 5; width: 1; duration: 3; }</pre>
+        </section>
+
+        <!-- Projectile Attacks -->
+        <section>
+            <h3>Super Ball</h3>
+            <p><strong>Category:</strong> Attack</p>
+            <p><strong>Energy Cost:</strong> 15</p>
+            <p><strong>Cooldown:</strong> 7 ticks</p>
+            <p><strong>Description:</strong> Bounces around the arena, hitting multiple targets.</p>
+            <p><strong>Effect:</strong> Deals 3 damage per hit, can hit up to 5 entities.</p>
+            <pre>struct SuperBall { bounces: 5; damage: 3; }</pre>
+        </section>
+
+        <section>
+            <h3>Wave</h3>
+            <p><strong>Category:</strong> Attack</p>
+            <p><strong>Energy Cost:</strong> 12</p>
+            <p><strong>Cooldown:</strong> 6 ticks</p>
+            <p><strong>Description:</strong> Sends a horizontal energy wave across the field.</p>
+            <p><strong>Effect:</strong> Knocks back enemies, deals 2 damage.</p>
+            <pre>struct Wave { speed: fast; damage: 2; knockback: 1; }</pre>
+        </section>
+
+        <!-- Orbital Drone Attacks -->
+        <section>
+            <h3>Basic Drone</h3>
+            <p><strong>Category:</strong> Attack (Orbital Drone)</p>
+            <p><strong>Energy Cost:</strong> 20</p>
+            <p><strong>Cooldown:</strong> 8 ticks</p>
+            <p><strong>Description:</strong> Circles the player, ramming enemies on contact.</p>
+            <p><strong>Effect:</strong> Deals 3 damage on contact, 3 HP, destroyed on damage.</p>
+            <pre>struct OrbitalDrone { HP:3; orbit:true; damage:3; behavior:ram; }</pre>
+        </section>
+
+        <section>
+            <h3>Scrap Drone</h3>
+            <p><strong>Category:</strong> Attack (Orbital Drone)</p>
+            <p><strong>Energy Cost:</strong> 25</p>
+            <p><strong>Cooldown:</strong> 10 ticks</p>
+            <p><strong>Description:</strong> Circles the player, collects debris while attacking enemies.</p>
+            <p><strong>Effect:</strong> Deals 2 damage on contact, collects scraps.</p>
+            <pre>struct OrbitalDrone { HP:2; orbit:true; collect:true; damage:2; }</pre>
+        </section>
+
+        <section>
+            <h3>Foam Drone</h3>
+            <p><strong>Category:</strong> Attack (Orbital Drone)</p>
+            <p><strong>Energy Cost:</strong> 22</p>
+            <p><strong>Cooldown:</strong> 9 ticks</p>
+            <p><strong>Description:</strong> Circles the player, spreads foam to slow enemies.</p>
+            <p><strong>Effect:</strong> Slows enemies in radius, deals 1 damage on contact.</p>
+            <pre>struct OrbitalDrone { HP:2; orbit:true; slow:true; damage:1; }</pre>
+        </section>
+
+        <section>
+            <h3>Sound Drone</h3>
+            <p><strong>Category:</strong> Attack (Orbital Drone)</p>
+            <p><strong>Energy Cost:</strong> 18</p>
+            <p><strong>Cooldown:</strong> 7 ticks</p>
+            <p><strong>Description:</strong> Circles the player, emits sound waves to push enemies back.</p>
+            <p><strong>Effect:</strong> Knockback enemies, 1 damage on contact.</p>
+            <pre>struct OrbitalDrone { HP:2; orbit:true; knockback:2; damage:1; }</pre>
+        </section>
+
+        <!-- Placeholder for Future Attacks -->
+        <section>
+            <h3>Future Attack 1</h3>
+            <p><strong>Category:</strong> Attack</p>
+            <p><strong>Energy Cost:</strong> ?</p>
+            <p><strong>Cooldown:</strong> ?</p>
+            <p><strong>Description:</strong> TBD</p>
+            <p><strong>Effect:</strong> TBD</p>
+            <pre>struct FutureAttack { effect: TBD; }</pre>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 M-Gon Project</p>
+    </footer>
+</body>
+</html>
