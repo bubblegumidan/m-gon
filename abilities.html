@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>M-Gon Abilities</title>
+    <title>M-Gon Abilities – Full Encyclopedia</title>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
 </head>
@@ -25,130 +25,137 @@
     </header>
 
     <main>
-        <h2>Abilities Table</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Energy Cost</th>
-                    <th>Cooldown</th>
-                    <th>Description</th>
-                    <th>Effect</th>
-                    <th>Code / Pseudo-Code</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Attack Abilities -->
-                <tr>
-                    <td>Laser Beam</td>
-                    <td>Attack</td>
-                    <td>10</td>
-                    <td>5 ticks</td>
-                    <td>Fires a continuous straight laser.</td>
-                    <td>Damages all entities in its path.</td>
-                    <td><pre>struct Laser { intensity: 5; width: 1; duration: 3; }</pre></td>
-                </tr>
-                <tr>
-                    <td>Super Ball</td>
-                    <td>Attack</td>
-                    <td>15</td>
-                    <td>7 ticks</td>
-                    <td>Bounces around the arena, hitting multiple targets.</td>
-                    <td>Deals 3 damage per hit, can hit up to 5 entities.</td>
-                    <td><pre>struct SuperBall { bounces: 5; damage: 3; }</pre></td>
-                </tr>
-                <tr>
-                    <td>Wave</td>
-                    <td>Attack</td>
-                    <td>12</td>
-                    <td>6 ticks</td>
-                    <td>Sends a horizontal energy wave across the field.</td>
-                    <td>Knocks back enemies, deals 2 damage.</td>
-                    <td><pre>struct Wave { speed: fast; damage: 2; knockback: 1; }</pre></td>
-                </tr>
+        <h2>Attack Abilities</h2>
 
-                <!-- Ally / Orbital Drones -->
-                <tr>
-                    <td>Basic Drone</td>
-                    <td>Ally / Orbital</td>
-                    <td>20</td>
-                    <td>8 ticks</td>
-                    <td>Circles the player, rams enemies on contact.</td>
-                    <td>Deals 3 damage, has 3 HP, can be destroyed.</td>
-                    <td><pre>struct OrbitalDrone { HP:3; orbit:true; damage:3; behavior:ram; }</pre></td>
-                </tr>
-                <tr>
-                    <td>Scrap Drone</td>
-                    <td>Ally / Orbital</td>
-                    <td>25</td>
-                    <td>10 ticks</td>
-                    <td>Circles the player, collects debris while attacking enemies.</td>
-                    <td>Deals 2 damage on contact, collects scraps.</td>
-                    <td><pre>struct OrbitalDrone { HP:2; orbit:true; collect:true; damage:2; }</pre></td>
-                </tr>
-                <tr>
-                    <td>Foam Drone</td>
-                    <td>Ally / Orbital</td>
-                    <td>22</td>
-                    <td>9 ticks</td>
-                    <td>Circles the player, spreads foam to slow enemies.</td>
-                    <td>Slows enemies in radius, deals 1 damage on contact.</td>
-                    <td><pre>struct OrbitalDrone { HP:2; orbit:true; slow:true; damage:1; }</pre></td>
-                </tr>
-                <tr>
-                    <td>Sound Drone</td>
-                    <td>Ally / Orbital</td>
-                    <td>18</td>
-                    <td>7 ticks</td>
-                    <td>Circles the player, emits sound waves to push enemies back.</td>
-                    <td>Knockback enemies, 1 damage on contact.</td>
-                    <td><pre>struct OrbitalDrone { HP:2; orbit:true; knockback:2; damage:1; }</pre></td>
-                </tr>
+        <section>
+            <h3>Laser Beam</h3>
+            <p><strong>Category:</strong> Attack</p>
+            <p><strong>Energy Cost:</strong> 10</p>
+            <p><strong>Cooldown:</strong> 5 ticks</p>
+            <p><strong>Description:</strong> Fires a continuous straight laser across the arena.</p>
+            <p><strong>Effect:</strong> Damages all entities in its path. Can interact with colored orbs for bonus effects.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct Laser { intensity: 5; width: 1; duration: 3; }</pre>
+        </section>
 
-                <!-- Systems / Spawners -->
-                <tr>
-                    <td>Summon Orb</td>
-                    <td>System / Spawner</td>
-                    <td>15</td>
-                    <td>10 ticks</td>
-                    <td>Spawns a pulsing energy orb that interacts with colors.</td>
-                    <td>Orb behaves according to color resonance and energy flow.</td>
-                    <td><pre>struct Orb { pulseRate: 2; colorInteraction: true; }</pre></td>
-                </tr>
+        <section>
+            <h3>Super Ball</h3>
+            <p><strong>Category:</strong> Attack</p>
+            <p><strong>Energy Cost:</strong> 15</p>
+            <p><strong>Cooldown:</strong> 7 ticks</p>
+            <p><strong>Description:</strong> Bounces around the arena, hitting multiple targets.</p>
+            <p><strong>Effect:</strong> Deals 3 damage per hit, can hit up to 5 entities.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct SuperBall { bounces: 5; damage: 3; }</pre>
+        </section>
 
-                <!-- Utilities -->
-                <tr>
-                    <td>Shield</td>
-                    <td>Utility</td>
-                    <td>8</td>
-                    <td>5 ticks</td>
-                    <td>Creates a temporary shield around the player.</td>
-                    <td>Blocks damage from attacks for 3 ticks.</td>
-                    <td><pre>struct Shield { duration: 3; block: true; }</pre></td>
-                </tr>
-                <tr>
-                    <td>Speed Boost</td>
-                    <td>Utility</td>
-                    <td>5</td>
-                    <td>4 ticks</td>
-                    <td>Increases player movement speed temporarily.</td>
-                    <td>+2 speed for 5 ticks.</td>
-                    <td><pre>struct SpeedBoost { multiplier: 2; duration: 5; }</pre></td>
-                </tr>
+        <section>
+            <h3>Wave</h3>
+            <p><strong>Category:</strong> Attack</p>
+            <p><strong>Energy Cost:</strong> 12</p>
+            <p><strong>Cooldown:</strong> 6 ticks</p>
+            <p><strong>Description:</strong> Sends a horizontal energy wave across the field.</p>
+            <p><strong>Effect:</strong> Knocks back enemies, deals 2 damage.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct Wave { speed: fast; damage: 2; knockback: 1; }</pre>
+        </section>
 
-                <!-- Unknown / Special -->
-                <tr>
-                    <td>Unknown Ability</td>
-                    <td>Special</td>
-                    <td>?</td>
-                    <td>?</td>
-                    <td>Effects are unpredictable and may vary.</td>
-                    <td>Unknown interactions, can combine with other abilities.</td>
-                    <td><pre>struct Unknown { effect: variable; }</pre></td>
-                </tr>
-            </tbody>
-        </table>
+        <h2>Ally / Orbital Drones</h2>
+
+        <section>
+            <h3>Basic Drone</h3>
+            <p><strong>Category:</strong> Ally / Orbital</p>
+            <p><strong>Energy Cost:</strong> 20</p>
+            <p><strong>Cooldown:</strong> 8 ticks</p>
+            <p><strong>Description:</strong> Circles the player, ramming enemies on contact.</p>
+            <p><strong>Effect:</strong> Deals 3 damage, has 3 HP, destroyed on enough damage.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct OrbitalDrone { HP:3; orbit:true; damage:3; behavior:ram; }</pre>
+        </section>
+
+        <section>
+            <h3>Scrap Drone</h3>
+            <p><strong>Category:</strong> Ally / Orbital</p>
+            <p><strong>Energy Cost:</strong> 25</p>
+            <p><strong>Cooldown:</strong> 10 ticks</p>
+            <p><strong>Description:</strong> Circles the player, collects debris while attacking enemies.</p>
+            <p><strong>Effect:</strong> Deals 2 damage on contact, collects scraps.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct OrbitalDrone { HP:2; orbit:true; collect:true; damage:2; }</pre>
+        </section>
+
+        <section>
+            <h3>Foam Drone</h3>
+            <p><strong>Category:</strong> Ally / Orbital</p>
+            <p><strong>Energy Cost:</strong> 22</p>
+            <p><strong>Cooldown:</strong> 9 ticks</p>
+            <p><strong>Description:</strong> Circles the player, spreads foam to slow enemies.</p>
+            <p><strong>Effect:</strong> Slows enemies in radius, deals 1 damage on contact.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct OrbitalDrone { HP:2; orbit:true; slow:true; damage:1; }</pre>
+        </section>
+
+        <section>
+            <h3>Sound Drone</h3>
+            <p><strong>Category:</strong> Ally / Orbital</p>
+            <p><strong>Energy Cost:</strong> 18</p>
+            <p><strong>Cooldown:</strong> 7 ticks</p>
+            <p><strong>Description:</strong> Circles the player, emits sound waves to push enemies back.</p>
+            <p><strong>Effect:</strong> Knockback enemies, 1 damage on contact.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct OrbitalDrone { HP:2; orbit:true; knockback:2; damage:1; }</pre>
+        </section>
+
+        <h2>System / Spawner Abilities</h2>
+
+        <section>
+            <h3>Summon Orb</h3>
+            <p><strong>Category:</strong> System / Spawner</p>
+            <p><strong>Energy Cost:</strong> 15</p>
+            <p><strong>Cooldown:</strong> 10 ticks</p>
+            <p><strong>Description:</strong> Spawns a pulsing energy orb that interacts with colors.</p>
+            <p><strong>Effect:</strong> Orb behaves according to color resonance and energy flow.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct Orb { pulseRate: 2; colorInteraction: true; }</pre>
+        </section>
+
+        <h2>Utility / Support Abilities</h2>
+
+        <section>
+            <h3>Shield</h3>
+            <p><strong>Category:</strong> Utility</p>
+            <p><strong>Energy Cost:</strong> 8</p>
+            <p><strong>Cooldown:</strong> 5 ticks</p>
+            <p><strong>Description:</strong> Creates a temporary shield around the player.</p>
+            <p><strong>Effect:</strong> Blocks damage from attacks for 3 ticks.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct Shield { duration: 3; block: true; }</pre>
+        </section>
+
+        <section>
+            <h3>Speed Boost</h3>
+            <p><strong>Category:</strong> Utility</p>
+            <p><strong>Energy Cost:</strong> 5</p>
+            <p><strong>Cooldown:</strong> 4 ticks</p>
+            <p><strong>Description:</strong> Increases player movement speed temporarily.</p>
+            <p><strong>Effect:</strong> +2 speed for 5 ticks.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct SpeedBoost { multiplier: 2; duration: 5; }</pre>
+        </section>
+
+        <h2>Unknown / Special Abilities</h2>
+
+        <section>
+            <h3>Unknown Ability</h3>
+            <p><strong>Category:</strong> Special</p>
+            <p><strong>Energy Cost:</strong> ?</p>
+            <p><strong>Cooldown:</strong> ?</p>
+            <p><strong>Description:</strong> Effects are unpredictable and may vary.</p>
+            <p><strong>Effect:</strong> Unknown interactions, can combine with other abilities.</p>
+            <p><strong>Code / Pseudo-Code:</strong></p>
+            <pre>struct Unknown { effect: variable; }</pre>
+        </section>
+
     </main>
 
     <footer>
