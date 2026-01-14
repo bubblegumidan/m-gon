@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>M-Gon Abilities</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>M-Gon: Abilities Encyclopedia</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="abilities.html">Abilities</a></li>
+                <li><a href="orbs.html">Orbs</a></li>
+                <li><a href="lasers.html">Lasers</a></li>
+                <li><a href="colors.html">Colors</a></li>
+                <li><a href="energytech.html">EnergyTech</a></li>
+                <li><a href="guntech.html">GunTech</a></li>
+                <li><a href="interactions.html">Interactions</a></li>
+                <li><a href="code.html">Code</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Abilities Table</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Energy Cost</th>
+                    <th>Cooldown</th>
+                    <th>Description</th>
+                    <th>Effect</th>
+                    <th>Code / Pseudo-Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Attacks -->
+                <tr>
+                    <td>Laser Beam</td>
+                    <td>Attack</td>
+                    <td>10</td>
+                    <td>5 ticks</td>
+                    <td>Fires a continuous straight laser.</td>
+                    <td>Damages all entities in its path.</td>
+                    <td><pre>struct Laser { intensity: 5; width: 1; duration: 3; }</pre></td>
+                </tr>
+                <tr>
+                    <td>Super Ball</td>
+                    <td>Attack</td>
+                    <td>15</td>
+                    <td>7 ticks</td>
+                    <td>Bounces around the arena, hitting multiple targets.</td>
+                    <td>Deals 3 damage per hit, can hit up to 5 entities.</td>
+                    <td><pre>struct SuperBall { bounces: 5; damage: 3; }</pre></td>
+                </tr>
+                <tr>
+                    <td>Wave</td>
+                    <td>Attack</td>
+                    <td>12</td>
+                    <td>6 ticks</td>
+                    <td>Sends a horizontal energy wave across the field.</td>
+                    <td>Knocks back enemies, deals 2 damage.</td>
+                    <td><pre>struct Wave { speed: fast; damage: 2; knockback: 1; }</pre></td>
+                </tr>
+
+                <!-- Systems / Spawners -->
+                <tr>
+                    <td>Drone</td>
+                    <td>System / Spawner</td>
+                    <td>20</td>
+                    <td>8 ticks</td>
+                    <td>Launches a drone that moves forward and rams into objects.</td>
+                    <td>Deals damage on contact, has 3 HP, can be destroyed.</td>
+                    <td><pre>struct Drone { HP:3; speed: fast; behavior: ram; }</pre></td>
+                </tr>
+                <tr>
+                    <td>Summon Orb</td>
+                    <td>System / Spawner</td>
+                    <td>15</td>
+                    <td>10 ticks</td>
+                    <td>Spawns a pulsing energy orb that interacts with colors.</td>
+                    <td>Orb behaves according to color resonance and energy flow.</td>
+                    <td><pre>struct Orb { pulseRate: 2; colorInteraction: true; }</pre></td>
+                </tr>
+
+                <!-- Utilities -->
+                <tr>
+                    <td>Shield</td>
+                    <td>Utility</td>
+                    <td>8</td>
+                    <td>5 ticks</td>
+                    <td>Creates a temporary shield around the player.</td>
+                    <td>Blocks damage from attacks for 3 ticks.</td>
+                    <td><pre>struct Shield { duration: 3; block: true; }</pre></td>
+                </tr>
+                <tr>
+                    <td>Speed Boost</td>
+                    <td>Utility</td>
+                    <td>5</td>
+                    <td>4 ticks</td>
+                    <td>Increases player movement speed temporarily.</td>
+                    <td>+2 speed for 5 ticks.</td>
+                    <td><pre>struct SpeedBoost { multiplier: 2; duration: 5; }</pre></td>
+                </tr>
+
+                <!-- Unknown / Special -->
+                <tr>
+                    <td>Unknown Ability</td>
+                    <td>Special</td>
+                    <td>?</td>
+                    <td>?</td>
+                    <td>Effects are unpredictable and may vary.</td>
+                    <td>Unknown interactions, can combine with other abilities.</td>
+                    <td><pre>struct Unknown { effect: variable; }</pre></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+
+    <footer>
+        <p>© 2026 M-Gon Project</p>
+    </footer>
+</body>
+</html>
