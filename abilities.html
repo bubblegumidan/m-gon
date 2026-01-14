@@ -39,7 +39,7 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- Attacks -->
+                <!-- Attack Abilities -->
                 <tr>
                     <td>Laser Beam</td>
                     <td>Attack</td>
@@ -68,16 +68,45 @@
                     <td><pre>struct Wave { speed: fast; damage: 2; knockback: 1; }</pre></td>
                 </tr>
 
-                <!-- Systems / Spawners -->
+                <!-- Ally / Orbital Drones -->
                 <tr>
-                    <td>Drone</td>
-                    <td>System / Spawner</td>
+                    <td>Basic Drone</td>
+                    <td>Ally / Orbital</td>
                     <td>20</td>
                     <td>8 ticks</td>
-                    <td>Launches a drone that moves forward and rams into objects.</td>
-                    <td>Deals damage on contact, has 3 HP, can be destroyed.</td>
-                    <td><pre>struct Drone { HP:3; speed: fast; behavior: ram; }</pre></td>
+                    <td>Circles the player, rams enemies on contact.</td>
+                    <td>Deals 3 damage, has 3 HP, can be destroyed.</td>
+                    <td><pre>struct OrbitalDrone { HP:3; orbit:true; damage:3; behavior:ram; }</pre></td>
                 </tr>
+                <tr>
+                    <td>Scrap Drone</td>
+                    <td>Ally / Orbital</td>
+                    <td>25</td>
+                    <td>10 ticks</td>
+                    <td>Circles the player, collects debris while attacking enemies.</td>
+                    <td>Deals 2 damage on contact, collects scraps.</td>
+                    <td><pre>struct OrbitalDrone { HP:2; orbit:true; collect:true; damage:2; }</pre></td>
+                </tr>
+                <tr>
+                    <td>Foam Drone</td>
+                    <td>Ally / Orbital</td>
+                    <td>22</td>
+                    <td>9 ticks</td>
+                    <td>Circles the player, spreads foam to slow enemies.</td>
+                    <td>Slows enemies in radius, deals 1 damage on contact.</td>
+                    <td><pre>struct OrbitalDrone { HP:2; orbit:true; slow:true; damage:1; }</pre></td>
+                </tr>
+                <tr>
+                    <td>Sound Drone</td>
+                    <td>Ally / Orbital</td>
+                    <td>18</td>
+                    <td>7 ticks</td>
+                    <td>Circles the player, emits sound waves to push enemies back.</td>
+                    <td>Knockback enemies, 1 damage on contact.</td>
+                    <td><pre>struct OrbitalDrone { HP:2; orbit:true; knockback:2; damage:1; }</pre></td>
+                </tr>
+
+                <!-- Systems / Spawners -->
                 <tr>
                     <td>Summon Orb</td>
                     <td>System / Spawner</td>
