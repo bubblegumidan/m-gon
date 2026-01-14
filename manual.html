@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>M-Gon Manual</title>
+<style>
+  body {
+    background-color: #111;
+    color: #00FFFF;
+    font-family: monospace;
+    padding: 20px;
+  }
+
+  nav a {
+    color: #00FFFF;
+    margin-right: 15px;
+    text-decoration: none;
+  }
+
+  h1, h2 {
+    color: #FF00FF;
+  }
+
+  .section {
+    background-color: rgba(0,255,255,0.1);
+    border: 1px solid #00FFFF;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+
+  .highlight { color:#FF00FF; font-weight:bold; }
+
+  /* Hover effect for interactivity */
+  .section li:hover {
+    color: #FF00FF;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="abilities.html">Abilities</a>
+  <a href="energy.html">Energy</a>
+  <a href="zalgo.html">Zalgo Text</a>
+  <a href="manual.html">Manual</a>
+</nav>
+
+<h1>M-Gon Manual</h1>
+
+<div class="section" id="abilities">
+  <h2>Abilities</h2>
+  <ul>
+    <li><span class="highlight">Laser:</span> Basic energy attack that damages enemies.</li>
+    <li><span class="highlight">Orbital Drones:</span> Ally drones circling your hitbox.</li>
+    <li><span class="highlight">Super Balls Wave:</span> Massive area attack that ricochets.</li>
+    <!-- Add more abilities here -->
+  </ul>
+</div>
+
+<div class="section" id="energy">
+  <h2>Energy Systems</h2>
+  <ul>
+    <li><span class="highlight">Energy Core:</span> Max energy 100, regenerates over time.</li>
+    <li><span class="highlight">Field Emitter:</span> Reveals orb effects.</li>
+    <li><span class="highlight">Energy Pulse:</span> Area attack consuming energy.</li>
+    <!-- Add more energy tech here -->
+  </ul>
+</div>
+
+<div class="section" id="lore">
+  <h2>Lore</h2>
+  <p>You are a bot made in a lab. Your soul slowly awakens as you travel through portals, gaining abilities, companions, and understanding of the orbs.</p>
+  <p>After 500 levels, you encounter the flashing exit door, and a final showdown with the arm occurs, teaching the lesson that friendship and creativity matter more than winning.</p>
+</div>
+
+<div class="section" id="zalgo">
+  <h2>Zalgo / Voice Messages</h2>
+  <pre id="zalgo" style="color:#FF00FF; white-space: pre-wrap;">
+c̴̨̛̼̭̟̦̬̮̜̋̿̐̑̂̎̉̔̐̾̓͂̑̈́̚...
+  </pre>
+</div>
+
+<script>
+  // Flicker effect for Zalgo text
+  const zalgo = document.getElementById('zalgo');
+  setInterval(() => {
+    zalgo.style.textShadow = `
+      0 0 ${Math.random()*5+5}px #FF00FF,
+      0 0 ${Math.random()*10+10}px #FF00FF,
+      0 0 ${Math.random()*15+15}px #FF00FF
+    `;
+  }, 100);
+</script>
+
+</body>
+</html>
