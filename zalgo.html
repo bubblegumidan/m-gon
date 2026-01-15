@@ -1,68 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>M-Gon — The Voice</title>
+<meta charset="UTF-8">
+<title>M-Gon Voice</title>
 
-  <style>
-    body {
-      background-color: #000;
-      color: #00ffff;
-      font-family: monospace;
-      padding: 20px;
-      overflow: hidden;
-    }
+<style>
+  body {
+    background-color: #000;
+    color: #ff00ff;
+    font-family: monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
 
-    h1 {
-      color: #ff00ff;
-    }
-
-    #zalgo {
-      margin-top: 30px;
-      font-size: 18px;
-      line-height: 1.6;
-      white-space: pre-wrap;
-      opacity: 0;
-      transition: opacity 2s ease-in;
-    }
-  </style>
+  #zalgo {
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 2s ease;
+    text-align: center;
+    white-space: pre-wrap;
+  }
+</style>
 </head>
 
 <body>
 
-<h1>…</h1>
-
-<pre id="zalgo"></pre>
+<div id="zalgo"></div>
 
 <script>
+  const zalgo = document.getElementById("zalgo");
+
   const messages = [
     "c̴̨̢̛̼̭̟̦̬̮̜̋̿̐̑̂̎̉̔̐̾̓͂̑̈́̚ö̵͕̈́͗̋͒m̴͈͐e̶̛̱͇̯͈̺͍͔͋͗͜ ̷̩̠̣̬̪̭͙̀ò̸̫͖͜ṉ̷̈́͑͌",
-    "''' we must go '''",
-    "''' what is that!? '''",
-    "''' I-I did it… I'm free '''"
+    "we must go",
+    "what is that!?",
+    "I-I did it… I'm free"
   ];
 
-  const zalgo = document.getElementById("zalgo");
-  let index = 0;
+  let i = 0;
 
-  function showMessage() {
-    if (index < messages.length) {
-      zalgo.textContent += messages[index] + "\n\n";
+  function showNext() {
+    zalgo.style.opacity = 0;
+
+    setTimeout(() => {
+      zalgo.textContent = messages[i];
       zalgo.style.opacity = 1;
-      index++;
-      setTimeout(showMessage, 3000);
-    }
+      i++;
+      if (i < messages.length) {
+        setTimeout(showNext, 4000);
+      }
+    }, 1000);
   }
 
-  showMessage();
+  showNext();
 
-  // subtle flicker effect
   setInterval(() => {
     zalgo.style.textShadow = `
-      0 0 ${Math.random() * 8}px #ff00ff,
-      0 0 ${Math.random() * 12}px #00ffff
+      0 0 ${Math.random()*10}px #ff00ff,
+      0 0 ${Math.random()*15}px #00ffff
     `;
-  }, 120);
+  }, 100);
 </script>
 
 </body>
