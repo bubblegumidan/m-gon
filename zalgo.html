@@ -1,33 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>M-Gon — The Voice</title>
+
+  <style>
+    body {
+      background-color: #000;
+      color: #00ffff;
+      font-family: monospace;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #ff00ff;
+    }
+
+    #zalgo {
+      margin-top: 30px;
+      font-size: 18px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      opacity: 0;
+      transition: opacity 2s ease-in;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>…</h1>
+
+<pre id="zalgo"></pre>
+
 <script>
-const messages = [
-  "c̴̨̢̛̼̭̟̦̬̮̜̋̿̐̑̂̎̉̔̐̾̓͂̑̈́̚ö̵͕̈́͗̋͒m̴͈͐e̶̛̱͇̯͈̺͍͔͋͗͜ ̷͖̀ò̸̫͖͜ṉ̷̈́͑͌",
-  "''' we must go. '''",
-  "''' what is that!? '''",
-  "''' I-I did it... I'm free '''"
-];
+  const messages = [
+    "c̴̨̢̛̼̭̟̦̬̮̜̋̿̐̑̂̎̉̔̐̾̓͂̑̈́̚ö̵͕̈́͗̋͒m̴͈͐e̶̛̱͇̯͈̺͍͔͋͗͜ ̷̩̠̣̬̪̭͙̀ò̸̫͖͜ṉ̷̈́͑͌",
+    "''' we must go '''",
+    "''' what is that!? '''",
+    "''' I-I did it… I'm free '''"
+  ];
 
-let index = 0;
-
-window.addEventListener("load", () => {
   const zalgo = document.getElementById("zalgo");
-  if (!zalgo) {
-    alert("Zalgo element not found");
-    return;
-  }
+  let index = 0;
 
   function showMessage() {
-    if (index >= messages.length) return;
-
-    zalgo.style.opacity = 0;
-    setTimeout(() => {
+    if (index < messages.length) {
       zalgo.textContent += messages[index] + "\n\n";
       zalgo.style.opacity = 1;
       index++;
       setTimeout(showMessage, 3000);
-    }, 500);
+    }
   }
 
   showMessage();
-});
+
+  // subtle flicker effect
+  setInterval(() => {
+    zalgo.style.textShadow = `
+      0 0 ${Math.random() * 8}px #ff00ff,
+      0 0 ${Math.random() * 12}px #00ffff
+    `;
+  }, 120);
 </script>
-<pre id="zalgo" class="fade-text"<>/pre>
+
+</body>
+</html>
