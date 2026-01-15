@@ -1,165 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>M-Gon Abilities – Full Encyclopedia</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js" defer></script>
+  <meta charset="UTF-8">
+  <title>M-Gon Abilities</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #111;
+      color: #00FFFF;
+      font-family: monospace;
+      padding: 20px;
+    }
+
+    nav a {
+      color: #00FFFF;
+      margin-right: 15px;
+      text-decoration: none;
+    }
+
+    h1, h2 {
+      color: #FF00FF;
+    }
+
+    .section {
+      background-color: rgba(0,255,255,0.1);
+      border: 1px solid #00FFFF;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+    }
+
+    .highlight {
+      color:#FF00FF; 
+      font-weight:bold;
+    }
+
+    .section li:hover {
+      color: #FF00FF;
+      transform: scale(1.05);
+      transition: all 0.3s ease;
+    }
+
+    pre {
+      font-family: monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      color: #FF00FF;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>M-Gon: Abilities Encyclopedia</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="abilities.html">Abilities</a></li>
-                <li><a href="orbs.html">Orbs</a></li>
-                <li><a href="lasers.html">Lasers</a></li>
-                <li><a href="colors.html">Colors</a></li>
-                <li><a href="energytech.html">EnergyTech</a></li>
-                <li><a href="guntech.html">GunTech</a></li>
-                <li><a href="interactions.html">Interactions</a></li>
-                <li><a href="code.html">Code</a></li>
-            </ul>
-        </nav>
-    </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="abilities.html">Abilities</a>
+    <a href="energy.html">Energy</a>
+    <a href="manual.html">Manual</a>
+  </nav>
 
-    <main>
-        <h2>Attack Abilities</h2>
+  <h1>M-Gon Abilities</h1>
 
-        <section>
-            <h3>Laser Beam</h3>
-            <p><strong>Category:</strong> Attack</p>
-            <p><strong>Energy Cost:</strong> 10</p>
-            <p><strong>Cooldown:</strong> 5 ticks</p>
-            <p><strong>Description:</strong> Fires a continuous straight laser across the arena.</p>
-            <p><strong>Effect:</strong> Damages all entities in its path. Can interact with colored orbs for bonus effects.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct Laser { intensity: 5; width: 1; duration: 3; }</pre>
-        </section>
+  <div class="section" id="attacks">
+    <h2>Offensive Abilities</h2>
+    <ul>
+      <li><span class="highlight">Laser:</span> Basic energy attack; deals damage to enemies.</li>
+      <li><span class="highlight">Super Balls Wave:</span> Area-of-effect projectile that ricochets off walls, hitting multiple targets.</li>
+      <li><span class="highlight">Wormhole:</span> Pulls blocks, enemies, and orbs toward you; uses energy while active.</li>
+      <li><span class="highlight">Energy Pulse:</span> Radial wave that damages all enemies nearby; consumes energy.</li>
+      <li><span class="highlight">Field Emitter:</span> Reveals orb properties; interacts with all orb types.</li>
+    </ul>
+  </div>
 
-        <section>
-            <h3>Super Ball</h3>
-            <p><strong>Category:</strong> Attack</p>
-            <p><strong>Energy Cost:</strong> 15</p>
-            <p><strong>Cooldown:</strong> 7 ticks</p>
-            <p><strong>Description:</strong> Bounces around the arena, hitting multiple targets.</p>
-            <p><strong>Effect:</strong> Deals 3 damage per hit, can hit up to 5 entities.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct SuperBall { bounces: 5; damage: 3; }</pre>
-        </section>
+  <div class="section" id="drones">
+    <h2>Orbital Drones</h2>
+    <p>Ally drones orbit your hitbox, acting as both defensive and offensive units.</p>
+    <ul>
+      <li><span class="highlight">Scrap Drone:</span> Rams enemies; 3 HP; damages on collision.</li>
+      <li><span class="highlight">Foam Drone:</span> Slows enemies on contact; small AoE effect.</li>
+      <li><span class="highlight">Sound Drone:</span> Emits sonic pulses that push back enemies.</li>
+      <li><span class="highlight">General Orbital Drone:</span> Circles your hitbox; attacks enemies automatically.</li>
+    </ul>
+    <p>All drones follow the player and regenerate slowly over time if destroyed.</p>
+  </div>
 
-        <section>
-            <h3>Wave</h3>
-            <p><strong>Category:</strong> Attack</p>
-            <p><strong>Energy Cost:</strong> 12</p>
-            <p><strong>Cooldown:</strong> 6 ticks</p>
-            <p><strong>Description:</strong> Sends a horizontal energy wave across the field.</p>
-            <p><strong>Effect:</strong> Knocks back enemies, deals 2 damage.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct Wave { speed: fast; damage: 2; knockback: 1; }</pre>
-        </section>
+  <div class="section" id="defense">
+    <h2>Defensive Abilities</h2>
+    <ul>
+      <li><span class="highlight">Shield:</span> Blocks enemy attacks temporarily; consumes energy per second.</li>
+      <li><span class="highlight">Clone / Mirror:</span> Creates a short-lived clone that mimics your movement for 2–3 seconds.</li>
+      <li><span class="highlight">Size Manipulation:</span> Shrink to dodge or grow to increase collision damage.</li>
+      <li><span class="highlight">Speed Boost:</span> Temporarily increases movement speed; works well with shrink.</li>
+      <li><span class="highlight">Knockback / Repulsion:</span> Pushes enemies away radially; scales with number of purple orbs.</li>
+    </ul>
+  </div>
 
-        <h2>Ally / Orbital Drones</h2>
+  <div class="section" id="misc">
+    <h2>Miscellaneous / Rare Effects</h2>
+    <ul>
+      <li><span class="highlight">Jump / Gravity Alteration:</span> Increases jump height or float time; allows sticking to walls briefly.</li>
+      <li><span class="highlight">Time Slow:</span> Slows the environment for tactical advantage; rare and limited duration.</li>
+      <li><span class="highlight">Orb Multiplier / Combo:</span> Increases the effect of other collected orbs for a short time.</li>
+    </ul>
+  </div>
 
-        <section>
-            <h3>Basic Drone</h3>
-            <p><strong>Category:</strong> Ally / Orbital</p>
-            <p><strong>Energy Cost:</strong> 20</p>
-            <p><strong>Cooldown:</strong> 8 ticks</p>
-            <p><strong>Description:</strong> Circles the player, ramming enemies on contact.</p>
-            <p><strong>Effect:</strong> Deals 3 damage, has 3 HP, destroyed on enough damage.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct OrbitalDrone { HP:3; orbit:true; damage:3; behavior:ram; }</pre>
-        </section>
-
-        <section>
-            <h3>Scrap Drone</h3>
-            <p><strong>Category:</strong> Ally / Orbital</p>
-            <p><strong>Energy Cost:</strong> 25</p>
-            <p><strong>Cooldown:</strong> 10 ticks</p>
-            <p><strong>Description:</strong> Circles the player, collects debris while attacking enemies.</p>
-            <p><strong>Effect:</strong> Deals 2 damage on contact, collects scraps.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct OrbitalDrone { HP:2; orbit:true; collect:true; damage:2; }</pre>
-        </section>
-
-        <section>
-            <h3>Foam Drone</h3>
-            <p><strong>Category:</strong> Ally / Orbital</p>
-            <p><strong>Energy Cost:</strong> 22</p>
-            <p><strong>Cooldown:</strong> 9 ticks</p>
-            <p><strong>Description:</strong> Circles the player, spreads foam to slow enemies.</p>
-            <p><strong>Effect:</strong> Slows enemies in radius, deals 1 damage on contact.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct OrbitalDrone { HP:2; orbit:true; slow:true; damage:1; }</pre>
-        </section>
-
-        <section>
-            <h3>Sound Drone</h3>
-            <p><strong>Category:</strong> Ally / Orbital</p>
-            <p><strong>Energy Cost:</strong> 18</p>
-            <p><strong>Cooldown:</strong> 7 ticks</p>
-            <p><strong>Description:</strong> Circles the player, emits sound waves to push enemies back.</p>
-            <p><strong>Effect:</strong> Knockback enemies, 1 damage on contact.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct OrbitalDrone { HP:2; orbit:true; knockback:2; damage:1; }</pre>
-        </section>
-
-        <h2>System / Spawner Abilities</h2>
-
-        <section>
-            <h3>Summon Orb</h3>
-            <p><strong>Category:</strong> System / Spawner</p>
-            <p><strong>Energy Cost:</strong> 15</p>
-            <p><strong>Cooldown:</strong> 10 ticks</p>
-            <p><strong>Description:</strong> Spawns a pulsing energy orb that interacts with colors.</p>
-            <p><strong>Effect:</strong> Orb behaves according to color resonance and energy flow.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct Orb { pulseRate: 2; colorInteraction: true; }</pre>
-        </section>
-
-        <h2>Utility / Support Abilities</h2>
-
-        <section>
-            <h3>Shield</h3>
-            <p><strong>Category:</strong> Utility</p>
-            <p><strong>Energy Cost:</strong> 8</p>
-            <p><strong>Cooldown:</strong> 5 ticks</p>
-            <p><strong>Description:</strong> Creates a temporary shield around the player.</p>
-            <p><strong>Effect:</strong> Blocks damage from attacks for 3 ticks.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct Shield { duration: 3; block: true; }</pre>
-        </section>
-
-        <section>
-            <h3>Speed Boost</h3>
-            <p><strong>Category:</strong> Utility</p>
-            <p><strong>Energy Cost:</strong> 5</p>
-            <p><strong>Cooldown:</strong> 4 ticks</p>
-            <p><strong>Description:</strong> Increases player movement speed temporarily.</p>
-            <p><strong>Effect:</strong> +2 speed for 5 ticks.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct SpeedBoost { multiplier: 2; duration: 5; }</pre>
-        </section>
-
-        <h2>Unknown / Special Abilities</h2>
-
-        <section>
-            <h3>Unknown Ability</h3>
-            <p><strong>Category:</strong> Special</p>
-            <p><strong>Energy Cost:</strong> ?</p>
-            <p><strong>Cooldown:</strong> ?</p>
-            <p><strong>Description:</strong> Effects are unpredictable and may vary.</p>
-            <p><strong>Effect:</strong> Unknown interactions, can combine with other abilities.</p>
-            <p><strong>Code / Pseudo-Code:</strong></p>
-            <pre>struct Unknown { effect: variable; }</pre>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>© 2026 M-Gon Project</p>
-    </footer>
 </body>
 </html>
