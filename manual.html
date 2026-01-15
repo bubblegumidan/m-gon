@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>M-Gon Manual</title>
-  <style>
-    body {
-      background-color: #111;
-      color: #00FFFF;
-      font-family: monospace;
-      padding: 20px;
-    }
-    nav a {
-      color: #00FFFF;
-      margin-right: 15px;
-      text-decoration: none;
-    }
-    h1, h2 {
-      color: #FF00FF;
-    }
-    .section {
-      background-color: rgba(0,255,255,0.1);
-      border: 1px solid #00FFFF;
-      padding: 10px;
-      margin: 10px 0;
-      border-radius: 8px;
-    }
-    .highlight { color:#FF00FF; font-weight:bold; }
-    .section li:hover {
-      color: #FF00FF;
-      transform: scale(1.05);
-      transition: all 0.3s ease;
-    }
-    pre {
-      font-family: monospace;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      color: #FF00FF;
-    }
-    .fade-text {
-      opacity: 0;
-      transition: opacity 2s ease-in;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>M-Gon Zalgo Guide</title>
+<style>
+  body {
+    background-color: #111;
+    color: #00FFFF;
+    font-family: monospace;
+    padding: 20px;
+  }
+
+  nav a {
+    color: #00FFFF;
+    margin-right: 15px;
+    text-decoration: none;
+  }
+
+  h1, h2 {
+    color: #FF00FF;
+  }
+
+  .section {
+    background-color: rgba(0,255,255,0.1);
+    border: 1px solid #00FFFF;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+  }
+
+  .highlight {
+    color:#FF00FF; 
+    font-weight:bold;
+  }
+
+  /* Hover effect for interactivity */
+  .section li:hover {
+    color: #FF00FF;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+
+  pre {
+    font-family: monospace;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: #FF00FF;
+  }
+
+  .fade-text {
+    opacity: 0;
+    transition: opacity 2s ease-in;
+  }
+</style>
 </head>
 <body>
 
@@ -49,11 +60,10 @@
   <a href="index.html">Home</a>
   <a href="abilities.html">Abilities</a>
   <a href="energy.html">Energy</a>
-  <a href="zalgo.html">Zalgo Text</a>
-  <a href="manual.html">Manual</a>
+  <a href="zalgo.html">Zalgo Guide</a>
 </nav>
 
-<h1>M-Gon Manual</h1>
+<h1>M-Gon Zalgo Guide</h1>
 
 <div class="section" id="abilities">
   <h2>Abilities</h2>
@@ -76,6 +86,7 @@
     <li><span class="highlight">Energy Pulse:</span> Radial wave damaging enemies, consumes energy.</li>
     <li><span class="highlight">Energy Barrier:</span> Converts energy into a protective shield.</li>
     <li><span class="highlight">Orb Absorption:</span> Converts nearby orbs into energy.</li>
+    <li><span class="highlight">Overdrive:</span> x3 damage attack, loses 1 energy per second with particle effect.</li>
   </ul>
 </div>
 
@@ -87,44 +98,42 @@
 
 <div class="section" id="zalgo">
   <h2>Zalgo / Voice Messages</h2>
-  <pre id="zalgo" class="fade-text"></pre>
+  <pre id="zalgo-text" class="fade-text"></pre>
 </div>
 
 <script>
-  // Zalgo messages gradually appearing
-  const messages = [
-    "c̴̨̢̛̼̭̟̦̬̮̜̋̿̐̑̂̎̉̔̐̾̓͂̑̈́̚ö̵͕̈́͗̋͒m̴͈͐e̶̛̱͇̯͈̺͍͔͋͗͜ ̷͖̀ò̸̫͖͜ṉ̷̈́͑͌ ̵̡̦̘͚̣͊̿͗͌̾̀͝͝y̸̗̭̩̯̮͔͛̾̆͑̋͗̓̇ͅŏ̸̝͚̰̩̻̾̈́̄̈̒͗̓̑͌̕͘͘͝ư̵̛̮̻̈̀̈̇̌́͗̐̾̆̕͠͝͝r...",
-    "''' we must go. '''",
-    "''' i think its? glitching. '''",
-    "''' what is that!? '''",
-    "''' I-I did it, I'm free '''"
-  ];
+const messages = [
+  "c̴̨̢̛̼̭̟̦̬̮̜̋̿̐̑̂̎̉̔̐̾̓͂̑̈́̚ö̵͕̈́͗̋͒m̴͈͐e̶̛̱͇̯͈̺͍͔͋͗͜ ̷͖̀ò̸̫͖͜ṉ̷̈́͑͌ ̵̡̦̘͚̣͊̿͗͌̾̀͝͝y̸̗̭̩̯̮͔͛̾̆͑̋͗̓̇ͅŏ̸̝͚̰̩̻̾̈́̄̈̒͗̓̑͌̕͘͘͝ư̵̛̮̻̈̀̈̇̌́͗̐̾̆̕͠͝͝r...",
+  "''' we must go. '''",
+  "''' what is that!? '''",
+  "''' I-I did it, I'm free '''"
+];
 
-  const zalgo = document.getElementById('zalgo');
-  let index = 0;
+const zalgo = document.getElementById('zalgo-text');
+let index = 0;
 
-  function showMessage() {
-    if(index < messages.length){
-      zalgo.textContent += messages[index] + "\n\n";
-      index++;
-      zalgo.classList.remove('fade-text');
-      void zalgo.offsetWidth; // trigger reflow to restart fade
-      zalgo.classList.add('fade-text');
-      setTimeout(showMessage, 3000); // 3 seconds between messages
-    }
+function showMessage() {
+  if(index < messages.length){
+    zalgo.textContent += messages[index] + "\n\n";
+    index++;
+    zalgo.classList.remove('fade-text');
+    void zalgo.offsetWidth; // trigger reflow to restart fade
+    zalgo.classList.add('fade-text');
+    setTimeout(showMessage, 3000); // 3 seconds between messages
   }
+}
 
-  window.onload = () => {
-    showMessage();
-    // Flicker effect
-    setInterval(() => {
-      zalgo.style.textShadow = `
-        0 0 ${Math.random()*5+5}px #FF00FF,
-        0 0 ${Math.random()*10+10}px #FF00FF,
-        0 0 ${Math.random()*15+15}px #FF00FF
-      `;
-    }, 100);
-  };
+window.onload = () => {
+  showMessage();
+  // Flicker glow effect
+  setInterval(() => {
+    zalgo.style.textShadow = `
+      0 0 ${Math.random()*5+5}px #FF00FF,
+      0 0 ${Math.random()*10+10}px #FF00FF,
+      0 0 ${Math.random()*15+15}px #FF00FF
+    `;
+  }, 100);
+};
 </script>
 
 </body>
