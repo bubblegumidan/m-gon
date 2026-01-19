@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>M-Gon Gameplay</title>
+<style>
+  body { background-color: #111; margin: 0; overflow: hidden; font-family: monospace; color: #0ff; }
+  canvas { display: block; background: #111; }
+  #hud { position: absolute; top: 10px; left: 10px; color: #0ff; }
+  .energy { color: #00f; }
+  .health { color: #f00; }
+</style>
+</head>
+<body>
+
+<div id="hud">
+  Health: <span id="health">100</span> |
+  Energy: <span id="energy">100</span>
+</div>
+
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+<script>
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+const player = {
+  x: 400,
+  y: 300,
+  size: 30,
+  color: '#0ff',
+  health: 100,
+  energy: 100,
+  speed: 3,
+  abilities: {
+    laser: true,
+    drones: true,
+    wormhole: true,
+    superWave: true,
+    shield: true,
+    clone: true,
+    fieldEmitter: true
+  }
+};
+
+const keys = {};
+document.addEventListener('keydown', e => keys[e.key.toLowerCase()] = true);
+document.addEventListener('keyup', e => keys[e.key.toLowerCase()] = false);
+
+// Basic enemy
+class Enemy {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.size = 25;
+    this.color = '#f0f';
+    this.health = 30;
+  }
+  draw() {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, this.size, this.size);
+  }
+}
+
+// Drones orbiting player
+const drones = [
+  { angle: 0, distance: 50, size: 10, color: '#ff0' },
+  { angle: Math.PI*2/3, distance: 50, size: 10, color: '#ff0' },
+  { angle: Math.PI*4/3, distance: 50, size: 10, color: '#ff0' }
+];
+
+// Sample enemies
+const enemies = [new Enemy(100,100), new Enemy(600,400)];
+
+// Game loop
+function update() {
+  // Player movement
+  if(keys['w']) player.y -= player.speed;
+  if(keys['s']) player.y += player.speed;
+  if(keys['a']) player.x -= player.speed;
+  if(keys['d']) player.x += player.speed;
+
+  // Drones orbit logic
+  drones.forEach(d => d.angle += 0.05);
+
+  draw();
+  requestAnimationFrame(update);
+}
+
+function draw() {
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+
+  // Draw player
+  ctx.fillStyle = player.color;
+  ctx.fillRect(player.x - player.size/2, player.y - player.size/2, player.size, player.size);
+
+  // Draw drones
+  drones.forEach(d => {
+    const dx = player.x + Math.cos(d.angle) * d.distance;
+    const dy = player.y + Math.sin(d.angle) * d.distance;
+    ctx.fillStyle = d.color;
+    ctx.beginPath();
+    ctx.arc(dx, dy, d.size, 0, Math.PI*2);
+    ctx.fill();
+  });
+
+  // Draw enemies
+  enemies.forEach(e => e.draw());
+}
+
+// Start game
+update();
+</script>
+
+</body>
+</html>
