@@ -3,68 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>M-Gon Home</title>
-  <style>
-    body {
-      background-color: #111;
-      color: #00FFFF;
-      font-family: monospace;
-      padding: 20px;
-      text-align: center;
-    }
-    nav a {
-      color: #00FFFF;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    h1 {
-      color: #FF00FF;
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    p {
-      color: #00FFFF;
-      font-size: 1.2em;
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
 </head>
 <body>
-
-<h1>Welcome to M-Gon</h1>
-
-<nav>
-  <a href="manual.html">Manual</a>
-  <a href="abilities.html">Abilities</a>
-  <a href="energy.html">Energy</a>
-  <a href="zalgo.html">Zalgo Text</a>
-</nav>
-
-<p>Explore the abilities, energy systems, and lore of M-Gon. Can you uncover all secrets?</p>
-
-<script>
-  // Kadomi Code Konami sequence: Up, Up, Down, Down, Left, Right, Left, Right, B, A, Enter
-  const kadomiCode = [
-    "ArrowUp","ArrowUp","ArrowDown","ArrowDown",
-    "ArrowLeft","ArrowRight","ArrowLeft","ArrowRight",
-    "b","a","Enter"
-  ];
-
-  let inputSequence = [];
-
-  window.addEventListener("keydown", function(e){
-    inputSequence.push(e.key);
-    // Only keep the last N keys where N = kadomiCode length
-    if(inputSequence.length > kadomiCode.length){
-      inputSequence.shift();
-    }
-
-    // Check if the sequence matches
-    if(inputSequence.join(",").toLowerCase() === kadomiCode.join(",").toLowerCase()){
-      // Jump to manual.html Zalgo section
-      window.location.href = "manual.html#zalgo";
-    }
-  });
-</script>
-
+  <h1>Welcome to M-Gon</h1>
+  <nav>
+    <a href="abilities.html">Abilities</a>
+    <a href="energy.html">Energy</a>
+    <a href="attacks.html">Attacks</a>
+    <a href="zalgo.html">Mid-Game Messages</a>
+    <a href="game.html">Play Game</a>
+  </nav>
+  <p>Explore the abilities, energy systems, and prepare for your journey.</p>
 </body>
 </html>
